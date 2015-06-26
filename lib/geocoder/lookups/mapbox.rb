@@ -18,7 +18,7 @@ module Geocoder::Lookup
 
     def query_url(query)
       #"#{protocol}://maps.googleapis.com/maps/api/place/details/json?#{url_query_string(query)}"
-      "#{protocol}://api.tiles.mapbox.com/v4/geocode/#{dataset}/#{URI.escape(query.sanitized_text.strip)}+3.json?#{url_query_string(mapbox_params)}"
+      "#{protocol}://api.tiles.mapbox.com/v4/geocode/#{dataset}/#{URI.escape(query.sanitized_text.strip)}+3.json?#{hash_to_query(mapbox_params)}"
     end
 
     private
@@ -50,7 +50,7 @@ module Geocoder::Lookup
       configuration[:dataset] || "mapbox.places"
     end
 
-    def mapbox_params()
+    def mapbox_params
       {
           access_token: configuration.api_key
       }
