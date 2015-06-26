@@ -1,6 +1,6 @@
 require 'cgi'
 require 'geocoder/lookups/base'
-require "geocoder/results/google"
+require "geocoder/results/mapbox"
 
 module Geocoder::Lookup
   class Mapbox < Base
